@@ -34,3 +34,19 @@ module "hello_world_webapp" {
 output "hello_world_url" {
   value = "https://${module.hello_world_webapp.default_hostname}"
 }
+
+
+module "iceland_webapp" {
+  source = "git::https://gitlab.sikademo.com/generali/generali-terraform-modules.git//webapp?ref=webapp"
+
+  name                = "example-generali-ondrejsika-iceland"
+  resource_group_name = module.service_plan.resource_group_name
+  location            = module.service_plan.resource_group_location
+  service_plan_id     = module.service_plan.service_plan_id
+  docker_image_name   = "ondrejsika/iceland-2"
+  docker_registry_url = "https://docker.io"
+}
+
+output "iceland_url" {
+  value = "https://${module.iceland_webapp.default_hostname}"
+}
