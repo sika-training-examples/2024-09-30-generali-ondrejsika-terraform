@@ -14,14 +14,14 @@ output "subnet_id" {
 }
 
 module "service_plan" {
-  source = "git::https://gitlab.sikademo.com/generali/generali-terraform-modules.git//service_plan?ref=webapp"
+  source = "git::https://gitlab.sikademo.com/generali/generali-terraform-modules.git//service_plan?ref=master"
 
   name     = "ondrejsika"
   sku_name = "P1v2"
 }
 
 module "hello_world_webapp" {
-  source = "git::https://gitlab.sikademo.com/generali/generali-terraform-modules.git//webapp?ref=webapp"
+  source = "git::https://gitlab.sikademo.com/generali/generali-terraform-modules.git//webapp?ref=master"
 
   name                = "example-generali-ondrejsika-hello-world"
   resource_group_name = module.service_plan.resource_group_name
@@ -37,7 +37,7 @@ output "hello_world_url" {
 
 
 module "iceland_webapp" {
-  source = "git::https://gitlab.sikademo.com/generali/generali-terraform-modules.git//webapp?ref=webapp"
+  source = "git::https://gitlab.sikademo.com/generali/generali-terraform-modules.git//webapp"
 
   name                = "example-generali-ondrejsika-iceland"
   resource_group_name = module.service_plan.resource_group_name
