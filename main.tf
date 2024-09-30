@@ -3,9 +3,12 @@ resource "azurerm_resource_group" "example" {
   location = "westeurope"
 }
 
-resource "azurerm_subnet" "example" {
-  name                 = "ondjrejsika"
-  resource_group_name  = azurerm_resource_group.example.name
+data "azurerm_subnet" "ondrejsika" {
+  name                 = "ondrejsika"
   virtual_network_name = "example-generali-network"
-  address_prefixes     = ["10.0.1.0/24"]
+  resource_group_name  = "example-generali-network"
+}
+
+output "subnet_id" {
+  value = data.azurerm_subnet.ondrejsika.id
 }
