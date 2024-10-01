@@ -20,6 +20,12 @@ module "service_plan" {
   sku_name = "P1v2"
 }
 
+module "generali_acr" {
+  source = "git::https://gitlab.sikademo.com/generali/generali-terraform-modules.git//acr?ref=master"
+
+  name = "generali"
+}
+
 module "hello_world_webapp" {
   source = "git::https://gitlab.sikademo.com/generali/generali-terraform-modules.git//webapp?ref=master"
 
