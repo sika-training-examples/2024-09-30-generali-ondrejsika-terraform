@@ -100,7 +100,7 @@ module "counter_webapp" {
   resource_group_name = module.service_plan.resource_group_name
   location            = module.service_plan.resource_group_location
   service_plan_id     = module.service_plan.service_plan_id
-  docker_image_name   = "ondrejsika/counter"
+  docker_image_name   = "ondrejsika/wip-counter-ssl"
   docker_registry_url = "https://docker.io"
   env = {
     BACKEND           = "postgres"
